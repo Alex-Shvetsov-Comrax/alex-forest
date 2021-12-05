@@ -1,0 +1,26 @@
+@use 'variables' as main;
+
+
+.farm-forest-results {
+  height: main.$content-height;
+  width: 100%;
+  padding-top: 5rem;
+  background-color: #ffffff;
+  overflow: auto;
+  position: relative;
+}
+
+.height {
+  visibility: collapse;
+  transition: all 0.2s;
+}
+
+.table{
+  margin-top: 3rem; 
+}
+
+ 
+
+.farm-forest-results-main-area{ 
+height: 100% !important; 
+}

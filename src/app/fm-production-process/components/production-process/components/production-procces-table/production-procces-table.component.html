@@ -1,0 +1,31 @@
+<div fxFill>
+  <kkl-table
+  #table
+  [data$]="data$"
+  [columns]="columns"
+  [model]="model"
+  [expendable]="true"
+  [hasState]="true"
+  [filterable]="true"
+  [hasActions]="true"
+  [selectable]="selectable"
+  [options]="options"
+  [rowsState$]="rowsState$"
+  [columnsState$]="columnsState$"
+  [rowSlots]="{ actions}"
+  (selected)="onSelected($event)"
+  >
+  </kkl-table>
+</div>
+
+<ng-template #actions let-row="row">
+  <div fxLayout="row" fxLayoutAlign="center end" dir="rtl"> 
+    <kkl-table-actions
+    [mode$]="mode$"
+    [hasEdit]="true"
+    [editable]="row.editable"
+    (edit)="onEdit(row)"
+    (delete)="onRemove(row)"
+  ></kkl-table-actions>
+  </div>
+</ng-template>

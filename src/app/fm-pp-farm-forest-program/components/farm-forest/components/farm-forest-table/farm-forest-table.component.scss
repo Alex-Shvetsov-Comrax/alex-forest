@@ -1,0 +1,17 @@
+@use 'variables' as main;
+
+.error{
+
+        ::ng-deep  .mat-form-field-appearance-outline .mat-form-field-outline{
+            opacity: 1 !important;
+            color: main.$warn;
+        }
+}
+
+.success{
+    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+        opacity:1 !important;
+        color: #d1d1d1;
+
+    }
+}

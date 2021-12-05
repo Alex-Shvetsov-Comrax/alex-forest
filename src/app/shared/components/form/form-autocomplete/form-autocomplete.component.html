@@ -1,0 +1,37 @@
+<mat-form-field [appearance]="disabled ? 'fill' : 'outline'">
+  <mat-label>{{ label }}</mat-label>
+
+  <input
+    type="text"
+    matInput
+    [formControl]="control"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete
+    autoActiveFirstOption
+    #auto="matAutocomplete"
+    (optionSelected)="onOptionSelected($event)"
+  >
+    <mat-option [disabled]="option.disabled" *ngFor="let option of (options$  |async)" [value]="option.value">
+      <ng-container *ngIf="!optionsSlot">
+        {{ option.label }}
+      </ng-container>
+      <ng-container *ngIf="optionsSlot">
+        <ng-container
+          *ngTemplateOutlet="
+            optionsSlot[question.key];
+            context: { option }
+          "
+        ></ng-container>
+      </ng-container>
+    </mat-option>
+  </mat-autocomplete>
+
+  <kkl-icon
+    *ngIf="icon"
+    matSuffix
+    [color]="color || 'primary'"
+    [key]="icon"
+    [size]="1.8"
+  ></kkl-icon>
+</mat-form-field>

@@ -1,0 +1,15 @@
+<mat-grid-list [cols]="cols || 1" rowHeight="5rem">
+  <mat-grid-tile *ngFor="let item of row" [colspan]="item?.cols || 1">
+    <div fxFill fxLayout="row" fxFill fxLayoutAlign="start center">
+
+      <app-data-cell [label]="item.label" [type]="item.type" [value]="item.value"></app-data-cell>
+
+      <ng-container *ngIf="item.type === 'custom'">
+        <ng-container *ngTemplateOutlet="slots?.custom"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="item.type === 'button'">
+        <ng-container *ngTemplateOutlet="slots?.button"></ng-container>
+      </ng-container>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

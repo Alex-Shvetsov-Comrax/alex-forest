@@ -1,0 +1,22 @@
+.main{
+    padding: 20px;
+    position:fixed;
+    top:10%;
+    left: 8%;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+
+    .icon{
+        padding: 10px;
+        border-radius: 4px;
+        background: #FFFFFF;
+        border: none;
+        margin: 10px;
+        box-shadow: 0px 6px 15px #AEB2B061;
+    }
+    .icon:hover {
+        cursor: pointer;
+    }
+}

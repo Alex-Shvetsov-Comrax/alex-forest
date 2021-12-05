@@ -1,0 +1,6 @@
+<mat-form-field appearance="outline" class="kkl-datepicker">
+	<!-- <input matInput [matDatepicker]="dp" [placeholder]="placeHolder"  (dateChange)="dateChange($event)" [formControl]="date"> -->
+	<input matInput [matDatepicker]="dp" [placeholder]="placeHolder"  (dateChange)="dateChange($event)" [formControl]="date">
+  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>

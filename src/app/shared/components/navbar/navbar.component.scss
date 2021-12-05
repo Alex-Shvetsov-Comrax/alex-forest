@@ -1,0 +1,16 @@
+@use "variables" as main;
+kkl-card-status {
+  width: 100%;
+}
+
+div {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  height: main.$toolbar-height;
+  backdrop-filter: blur(15px) saturate(70%) contrast(70%) brightness(130%);
+  background-color: main.color(paper) !important;
+  box-sizing: border-box;
+}

@@ -1,0 +1,58 @@
+@use "variables" as main;
+
+.svg-icon {
+    height: 100%;
+    background: #ffffff;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    position: relative;
+    
+    border: 2px solid #37c56b;
+    margin: 0 auto;
+    div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        p {
+            margin: 0;
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+    .second-icon {
+        ::ng-deep svg * {
+            fill:#37c56b;
+        }
+    }
+}
+
+#first-icon {
+    position: absolute;
+    right: 45px;
+    // bottom: 20px;
+    // left: 30px;
+    ::ng-deep mat-icon {
+        border-radius: 50%;
+        height: 20px !important;
+        width: 20px !important;
+        svg {
+            fill: white;
+            height: 10px;
+            width: 10px;
+            margin: 0 auto;
+            margin-top: 4px;
+            display: block;
+        }
+    }
+}
+#second-icon {
+    position: relative;
+    top: 10px;
+    transform: translate(-50%, -50%);
+    ::ng-deep mat-icon {
+        height: 20px;
+        width: 20px;
+    }
+}

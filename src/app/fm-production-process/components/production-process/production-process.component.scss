@@ -1,0 +1,13 @@
+@use "variables" as main;
+
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+div {
+  height: main.$content-height;
+  background-color: #fff;
+  padding: 5rem 10rem;
+  border: 1px solid;
+}

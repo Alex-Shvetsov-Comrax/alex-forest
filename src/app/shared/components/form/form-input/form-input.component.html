@@ -1,0 +1,86 @@
+<div>
+  <mat-form-field
+    [ngClass]="{ 'input-slot': controlType === 'custom' }"
+    [appearance]="
+      appearance
+        ? appearance
+        : control?.disabled
+        ? 'fill'
+        : controlType !== 'custom'
+        ? 'outline'
+        : 'legacy'
+    "
+    [dir]="'rtl'"
+  >
+    <mat-label *ngIf="controlType !== 'custom'">{{ label }}</mat-label>
+
+
+    <ng-container [ngSwitch]="controlType">
+      <ng-container *ngSwitchCase="'textarea'">
+        <textarea
+          matInput
+          [rows]="gridProps?.rows"
+          [formControl]="control"
+          [name]="question.key"
+          (focusout)="validate()"
+          #textarea
+        ></textarea>
+      </ng-container>
+      <ng-container *ngSwitchCase="'select'">
+        <mat-select
+          panelClass="select-panel-form"
+          overlayPanelClass="overlay-panel"
+          [multiple]="question.multi"
+          [disableOptionCentering]="true"
+          (selectionChange)="onSelectChange()"
+          [formControl]="control"
+          [name]="question.key"
+        >
+          <!-- (focusout)="validate()" -->
+          <mat-option *ngFor="let option of options" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </ng-container>
+      <ng-container *ngSwitchCase="'autocomplete'">
+        <input
+          type="text"
+          matInput
+          [formControl]="control"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          [displayWith]="displayFn"
+          (optionSelected)="onOptionSelected($event)"
+        >
+          <mat-option *ngFor="let option of options" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-autocomplete>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <input
+          matInput
+          autocomplete="off"
+          [formControl]="control"
+          [name]="question?.key"
+          [type]="controlType"
+          (focusout)="validate()"
+          (input)="setValue(input.value)"
+          #input
+        />
+      </ng-container>
+    </ng-container>
+    <kkl-icon
+      *ngIf="icon"
+      matSuffix
+      [color]="color$ | async"
+      [size]="1.8"
+      [key]="icon"
+    ></kkl-icon>
+    <mat-error>{{ error$ | async }}</mat-error>
+  </mat-form-field>
+</div>

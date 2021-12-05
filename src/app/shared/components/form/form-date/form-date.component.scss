@@ -1,0 +1,12 @@
+@use "variables" as main;
+
+mat-form-field {
+  width: 100%;
+  font-size: 14px !important;
+}
+
+.kkl-datepicker {
+  ::ng-deep svg * {
+    fill: main.color(primary);
+  }
+}

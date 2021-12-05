@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" [dir]="'rtl'">
+  <div fxFlex="27" fxLayout="column" *ngIf="columns.length > 0">
+    <mat-grid-list cols="1" rowHeight="5rem">
+      <mat-grid-tile *ngFor="let column of columns" [rowspan]="column.rows || 1">
+        <div fxFill fxLayout="row" fxLayoutAlign="start center">
+          <ng-container *ngIf="!column.custom">
+            <app-data-cell [label]="column.label" [value]="column.value" isUnderline="true"></app-data-cell>
+          </ng-container>
+
+          <ng-container *ngIf="column.custom">
+            <ng-container *ngTemplateOutlet="slots?.column; context:{column}"></ng-container>
+          </ng-container>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div fxFlex="71" fxLayout="row wrap" class="content">
+    <app-data-row *ngFor="let row of data" [row]="row" [cols]="rowCols"></app-data-row>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="form-input-upload">
+  <button appBorder [size]="2" type="button" mat-button (click)="fileUpload.click()">
+    <ng-content></ng-content>
+  </button>
+  <input hidden type="file" [formControl]="control" #fileUpload [multiple]="multi" />
+</div>

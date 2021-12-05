@@ -1,0 +1,26 @@
+@use "variables" as main;
+@use "theme" as tac-theme;
+
+button {
+
+  line-height: 3rem !important;
+
+  &.btn-sort {
+    padding: 0px;
+  }
+
+  &.btn-filter {
+    padding: 0px !important;
+    transform: translateY(0.5rem);
+
+    &.active {
+      background-color: map-get($map: tac-theme.$plt-primary, $key: 50);
+    }
+  }
+
+
+}
+
+div.currency {
+  width: 25rem;
+}

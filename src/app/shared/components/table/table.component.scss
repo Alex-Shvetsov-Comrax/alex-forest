@@ -1,0 +1,119 @@
+@use "variables" as main;
+
+::ng-deep mat-table {
+  width: 100%;
+  height: 100%;
+  background-color: inherit !important;
+
+  button {
+    line-height: 3rem !important;
+  }
+
+  .select {
+    flex: 0.5;
+  }
+
+  .actions-header {
+    justify-content: flex-end;
+
+    .btn-action {
+      padding-right: 0px;
+      padding-left: main.spacing(4);
+    }
+  }
+  .actions {
+    justify-content: flex-end;
+
+    .btn-action {
+      padding-right: 0px;
+      padding-left: main.spacing(4);
+    }
+  }
+}
+
+mat-cell {
+  box-sizing: border-box;
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.expand {
+    background-color: main.color(table) !important;
+  }
+}
+
+mat-header-cell {
+  align-items: flex-end;
+  padding-bottom: main.spacing(1);
+  box-sizing: border-box;
+
+  &.center {
+    justify-content: center;
+  }
+}
+.disabled {
+  opacity: 30%;
+}
+mat-header-row.accent {
+  border-bottom: main.color(accent) solid 3px;
+}
+
+mat-header-row.primary {
+  border-top: #e9fbfe dotted 3px;
+  padding-top: main.spacing(1);
+  padding-bottom: main.spacing(1);
+  background-color: #e9fbfe;
+  background-clip: content-box;
+  min-height: 5rem;
+}
+
+// style for row
+mat-row {
+  &.hideBorder {
+    border-bottom: none;
+  }
+
+  &.default {
+    height: 7rem;
+  }
+
+  &.form {
+    height: 10rem;
+  }
+
+  &.hide {
+    height: 0rem;
+    min-height: 0rem;
+  }
+
+  &.expand {
+    margin-top: main.spacing(1);
+  }
+
+  &.accordion {
+    cursor: pointer;
+  }
+}
+
+.cell-input {
+  width: 85%;
+  height: 65%;
+
+  app-column-form {
+    width: inherit;
+  }
+}
+
+::ng-deep .mat-sort-header-arrow {
+  color: main.color(primary) !important;
+}
+
+button.action {
+  cursor: initial;
+}
+
+::ng-deep div.mat-sort-header-arrow   {
+  opacity: 0;
+  display: none;
+}

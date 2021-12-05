@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+
+  <button
+    *ngIf="editable"
+    mat-raised-button
+    (click)="onSave()"
+    appBorder
+  >
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
+      <kkl-typography [color]="'text'"> שמור </kkl-typography>
+    </div>
+  </button>
+  <ng-container *ngIf="hasEdit">
+    <button
+    *ngIf="!editable"
+      mat-icon-button
+      (click)="onEdit()"
+    >
+      <kkl-icon key="edit"></kkl-icon>
+    </button>
+  </ng-container>
+  <button mat-icon-button (click)="onDelete()">
+    <kkl-icon key="delete"></kkl-icon>
+  </button>
+
+  <ng-container>
+    <ng-template *ngTemplateOutlet="buttonSlots"></ng-template>
+  </ng-container>
+</div>

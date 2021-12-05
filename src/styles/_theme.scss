@@ -1,0 +1,181 @@
+@use "~@angular/material" as mat;
+
+$plt-primary: (
+  50: #e7f8ed,
+  100: #c3eed3,
+  200: #9be2b5,
+  300: #73d697,
+  400: #55ce81,
+  500: #37c56b,
+  600: #31bf63,
+  700: #2ab858,
+  800: #23b04e,
+  900: #16a33c,
+  A100: #d7ffe0,
+  A200: #a4ffb9,
+  A400: #71ff92,
+  A700: #58ff7f,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$plt-accent: (
+  50: #e1f4f6,
+  100: #b3e5e9,
+  200: #80d3da,
+  300: #4dc1cb,
+  400: #27b4bf,
+  500: #01a7b4,
+  600: #019fad,
+  700: #0196a4,
+  800: #018c9c,
+  900: #007c8c,
+  A100: #b8f5ff,
+  A200: #85eeff,
+  A400: #52e7ff,
+  A700: #39e3ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$warn: (
+  50: #fae6e4,
+  100: #f3c1bc,
+  200: #ec9890,
+  300: #e46e63,
+  400: #de4f41,
+  500: #d83020,
+  600: #d42b1c,
+  700: #ce2418,
+  800: #c81e13,
+  900: #bf130b,
+  A100: #ffebeb,
+  A200: #ffbab8,
+  A400: #ff8885,
+  A700: #ff6f6b,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$icon: (
+  50: #eeeeee,
+  100: #d5d5d5,
+  200: #bababa,
+  300: #9e9e9e,
+  400: #898989,
+  500: #747474,
+  600: #6c6c6c,
+  700: #616161,
+  800: #575757,
+  900: #444444,
+  A100: #f6aeae,
+  A200: #f18080,
+  A400: #ff3f3f,
+  A700: #ff2525,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$plt-primary: mat.define-palette($plt-primary, 500);
+$plt-accent: mat.define-palette($plt-accent, 500, A100, A400);
+$warn: mat.define-palette($warn, 500);
+
+$tac-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $plt-primary,
+      accent: $plt-accent,
+      warn: $warn,
+    ),
+  )
+);
+
+$plt-background: map-get($tac-theme, background);
+$plt-foreground: map-get($tac-theme, foreground);
+
+$p-keys: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900;
+$a-keys: (
+  100: A100,
+  200: A200,
+  400: A400,
+  700: A700,
+);
+
+@mixin tac-theme {
+  @include mat.core();
+  @include mat.all-component-themes($tac-theme);
+
+  :root {
+    @each $key in $p-keys {
+      --p-#{$key}: #{map-get($plt-primary, $key)};
+    }
+
+    @each $key, $value in $a-keys {
+      --a-#{$key}: #{map-get($plt-accent, $value)};
+    }
+
+    @each $key, $value in $plt-background {
+      --b-#{$key}: #{$value};
+    }
+
+    @each $key, $value in $plt-foreground {
+      --f-#{$key}: #{$value};
+    }
+  }
+}

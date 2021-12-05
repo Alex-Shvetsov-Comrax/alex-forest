@@ -1,0 +1,51 @@
+<mat-toolbar fxLayout="row-reverse" fxLayoutAlign="space-between center" fxFill>
+  <div fxFlex="10">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <button
+        class="prev mat-elevation-z1"
+        mat-icon-button
+        (click)="onPrevious()"
+      >
+        <kkl-icon type="mat" key="chevron_right"></kkl-icon>
+      </button>
+    </div>
+  </div>
+  <div fxFlex="33" fxLayout="column" fxLayoutAlign="center center" *ngIf='hasIcon'>
+    <kkl-icon type="svg" [size]="20" key="tree_top_gradient_mpk"></kkl-icon>
+  </div>
+  <div
+    fxFlex="15"
+    fxLayout="row"
+    [fxLayoutAlign]="
+      hasSave || buttonSlots ? 'space-between center' : 'end center'
+    "
+  >
+    <button
+      *ngIf="hasSave"
+      mat-raised-button
+      color="primary"
+      (click)="onSave()"
+    >
+      <kkl-typography color="paper"> שמירה </kkl-typography>
+    </button>
+    <ng-container>
+      <ng-template *ngTemplateOutlet="buttonSlots"></ng-template>
+    </ng-container>
+    <button
+      *ngIf="hasNext"
+      mat-raised-button
+      [disabled]="!hasNext"
+      color="primary"
+      (click)="onNext()"
+    >
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <kkl-typography color="paper"> {{ text || "המשך" }} </kkl-typography>
+        <kkl-icon
+          [color]="hasNext ? 'paper' : 'disable'"
+          type="mat"
+          key="chevron_left"
+        ></kkl-icon>
+      </div>
+    </button>
+  </div>
+</mat-toolbar>

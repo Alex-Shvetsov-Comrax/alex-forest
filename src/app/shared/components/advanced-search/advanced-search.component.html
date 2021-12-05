@@ -1,0 +1,23 @@
+<div class="advanced-search" fxLayout="column">
+    <div class="radios" fxLayout='row' *ngIf='radios'>
+        <kkl-form-radio [question]='radios'
+            [control]='radioControl'></kkl-form-radio>
+    </div>
+
+    <div class="inputs" fxLayout='row'>
+        <div class="toggle-inputs-icon">
+            <kkl-icon size='1.7' *ngIf='toggle' key="two_arrows" (click)='toggleFun()'></kkl-icon>
+            <kkl-icon size='1.7' *ngIf='!toggle' key="two_arrows_down" (click)='toggleFun()'></kkl-icon>
+        </div>
+        <kkl-form-input [question]='searchInput' dir='rtl'
+            [control]='searchControl' (iconClick)='iconClickEmit()' fxFlex='60'>
+        </kkl-form-input>
+    </div>
+    <div class="inputs-toggle" fxLayout='row' *ngIf='toggle'>
+        <div class="inputs">
+            <kkl-form-input *ngFor='let question of toggleInputs' [question]='question' dir='rtl'
+                [control]='toggleFormGroup.formGroup.controls[question.key]' fxFlex='20'>
+            </kkl-form-input>
+        </div>
+    </div>
+</div>

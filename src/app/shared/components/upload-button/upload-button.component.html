@@ -1,0 +1,7 @@
+<kkl-form-input-upload [multi]="multi" (fileChange)="onFileChange($event)">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <kkl-typography *ngIf="!table">{{ fileName || label }}</kkl-typography>
+    <kkl-typography *ngIf="table">{{ fileName?'קובץ התווסף': label  ||label }}</kkl-typography>
+    <kkl-icon [size]="2" stroke="primary" key="open_border"></kkl-icon>
+  </div>
+</kkl-form-input-upload>

@@ -1,0 +1,23 @@
+.currency-input {
+    position: relative;
+    flex-direction: row-reverse;
+    ::ng-deep .number-input {
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+    .number-input {
+        ::ng-deep input.mat-input-element{
+            max-width: 40%;
+        }
+    }
+    .select-currency {
+        position: absolute; 
+        bottom: 1rem;        
+        * {
+            text-align: center;
+        }
+    }
+}

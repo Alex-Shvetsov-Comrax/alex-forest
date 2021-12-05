@@ -1,0 +1,15 @@
+@use "variables" as main;
+
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+div {
+  height: main.$content-height;
+}
+
+app-dashboard-card {
+  width: 100;
+  height: 100%;
+}

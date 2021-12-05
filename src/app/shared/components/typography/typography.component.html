@@ -1,0 +1,5 @@
+<span (click)="onClick()" [dir]="'rtl'" [ngClass]="['fontFamily', 'typography']"
+  [ngStyle]="{'color' : palette[color], 'font-size.rem' : size, 'font-weight' : bold , 'text-decoration' : underline ? 'underline' : 'none'}">
+  <ng-content></ng-content>
+</span>
+

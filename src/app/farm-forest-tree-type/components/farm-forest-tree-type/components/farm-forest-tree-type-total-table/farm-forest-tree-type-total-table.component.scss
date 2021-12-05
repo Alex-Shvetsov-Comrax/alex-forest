@@ -1,0 +1,23 @@
+@use 'variables' as main;
+
+.header-icons {
+    gap: 15px;
+  }
+  
+  .header-icon {
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: main.$primary;
+    box-shadow: main.$box-shadow-gray;
+    border-radius: 5px;
+  }
+  
+  .header-icon-link {
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: main.$box-shadow-gray;
+    border-radius: 5px;
+    cursor: pointer;
+  
+  }

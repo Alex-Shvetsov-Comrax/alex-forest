@@ -1,0 +1,32 @@
+.advanced-search {
+    gap: 1rem;
+    .inputs {
+        align-items: baseline;
+        justify-content: flex-end;
+    }
+    .radios {
+        justify-content: flex-end;
+    }
+    .inputs-toggle {
+        justify-content: flex-end;
+        .inputs {
+            display: flex;
+            gap: 3rem;
+        }
+    }
+    ::ng-deep .radio-button {
+        gap: 3rem;
+    }
+    .toggle-inputs-icon {
+        height: 3.6rem;
+        width: 3.6rem;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 2px;
+        margin-right: 1rem;
+        padding: 2px;
+    }
+    ::ng-deep kkl-icon:hover {
+        cursor: pointer;
+    }
+}

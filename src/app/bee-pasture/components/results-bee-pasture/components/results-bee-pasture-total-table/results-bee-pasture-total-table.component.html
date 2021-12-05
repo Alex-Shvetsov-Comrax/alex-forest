@@ -1,0 +1,120 @@
+<div fxFill>
+    <kkl-table
+      *ngIf="data$ | async"
+      theme="primary"
+      [data$]="data$"
+      [columns]="columns"
+      [model]="model"
+      [hasState]="hasState"
+      [options]="options"
+      [rowsState$]="rowsState$"
+      [columnsState$]="columnsState$"
+      [hasActions]="true"
+      [rowSlots]="{actions}"
+      [formSlots]="{
+        ashtaol: ashtaolInput,
+        gilat: gilatInput,
+        golani: golaniInput
+      }"
+      [hasFooter]="hasFooter"
+      [headerSlots]="{ }"
+      (selected)="onSelected($event)"
+    >
+    </kkl-table>
+  </div>
+  
+  <ng-template #actions let-row="row">
+    <div fxLayout="row" fxLayoutAlign="center end" dir="rtl">
+        <ng-container *ngIf="mode$ | async as mode">
+            <kkl-table-actions
+              [mode$]="mode$"
+              [hasEdit]="true"
+              [editable]="row.editable"
+              (edit)="onEditState(row)"
+              (delete)="onDeleteState({row, mode})"
+            ></kkl-table-actions>
+          </ng-container>
+    </div>
+  </ng-template>
+  
+  <ng-template #actionsFooter let-row="row">
+    <button
+      mat-raised-button
+      [disabled]="!(contactsButton$ | async)"
+      color="primary"
+      (click)="onSelectContacts()"
+    >
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <kkl-typography [color]="(contactsButton$ | async) ? 'paper' : 'disable'">
+          {{ text || "שמור" }}
+        </kkl-typography>
+        <kkl-icon
+          [color]="(contactsButton$ | async) ? 'paper' : 'disable'"
+          type="mat"
+          key="chevron_left"
+        ></kkl-icon>
+      </div>
+    </button>
+  </ng-template>
+  <ng-template
+    #ashtaolInput
+    let-row="row"
+    let-control="control"
+    let-column="column"
+    let-question="question"
+  >
+    <kkl-form-input
+      [ngClass]="[checkToyalSum(row) ? 'error' : 'success']"
+      [question]="column.question"
+      [control]="control"
+      (input)="checkToyalSum(row, column, control)"
+    ></kkl-form-input>
+  </ng-template>
+  <ng-template
+    #gilatInput
+    let-row="row"
+    let-control="control"
+    let-column="column"
+    let-question="question"
+  >
+    <kkl-form-input
+      dir="rtl"
+      [ngClass]="[checkToyalSum(row) ? 'error' : 'success']"
+      [question]="column.question"
+      [control]="control"
+      (input)="checkToyalSum(row, column, control)"
+    ></kkl-form-input>
+  </ng-template>
+  <ng-template
+    #golaniInput
+    let-row="row"
+    let-control="control"
+    let-column="column"
+    let-question="question"
+  >
+    <kkl-form-input
+      [ngClass]="[checkToyalSum(row) ? 'error' : 'success']"
+      [question]="column.question"
+      [control]="control"
+      (input)="checkToyalSum(row, column, control)"
+    ></kkl-form-input>
+  </ng-template>
+  
+  <!-- <ng-template #actionsHeader let-row="row">
+    <div class="header-icons" fxLayout="row" fxLayoutAlign="center center">
+      <a class="header-icon">
+        <kkl-icon
+          [size]="1.5"
+          [color]="'paper'"
+          [key]="'trash_delete'"
+        ></kkl-icon>
+      </a>
+      <a
+        class="header-icon-link"
+        routerLink="/forestry/forest-management/production-process/farm-forest/trees"
+      >
+        <kkl-icon [size]="1.5" [key]="'trash_delete'"></kkl-icon>
+      </a>
+    </div>
+  </ng-template>
+   -->

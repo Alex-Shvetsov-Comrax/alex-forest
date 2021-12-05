@@ -1,0 +1,35 @@
+.sidenav-container {
+  position: absolute;
+  top: 10rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 25%;
+  z-index: 2;
+  box-shadow: 2px 5px 6px #00000017;
+  backdrop-filter: blur(12px);
+  background-image: none !important; 
+  .main {
+    height: calc(100% - 10rem);
+    background-color: transparent;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+  .content {
+    margin-top: 1rem;
+  }
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+}
+.close-box {
+  bottom: 80%;
+  left: 46rem;
+  position: absolute;
+}
+
+.close-box:hover {
+  cursor: pointer;
+}

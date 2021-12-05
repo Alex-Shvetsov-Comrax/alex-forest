@@ -1,0 +1,40 @@
+@use "variables" as main;
+
+.sidenav-container {
+    height: 100%;
+  }
+
+  mat-sidenav-content {
+    margin: 0px !important;
+    overflow-x: hidden;
+  }
+
+  mat-sidenav {
+
+    &.menu {
+      width: 246px;
+      top: main.$toolbar-height;
+      height: main.$content-height;
+      z-index: 100;
+
+
+      div.menu-container {
+        height: inherit;
+        padding-right : main.spacing(1);
+      }
+
+    }
+
+    &.wizard {
+      background-color: transparent !important;
+      width: 80px;
+      height: 100%;
+      border: none;
+
+      div.stepper-container {
+        height: 100%;
+      }
+    }
+  }
+
+

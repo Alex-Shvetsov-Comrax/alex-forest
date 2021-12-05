@@ -1,0 +1,23 @@
+<div [ngClass]="type" fxLayout="column" fxLayoutAlign="center center" fxFill>
+  <div class="card-svg-container" (click)="onStepClick()" [matBadge]="step.value" matBadgeColor="accent"
+    matBadgeSize="medium" fxFill>
+    <mat-card appVariant [type]="step.type" [variant]="step.variant" [ngClass]="{
+          'mat-elevation-z0': true,
+          active: (active$ | async)
+        }">
+      <mat-card-content appButton>
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <div fxFlex="80">
+            <kkl-icon [color]="(active$ | async) ? 'paper' : 'primary'" [key]="step.svgUrl" [size]="step.size">
+            </kkl-icon>
+          </div>
+          <div fxFlex="15" [ngClass]="{ active: (active$ | async) }" fxLayout="column" fxLayoutAlign="end center">
+            <kkl-typography [color]="(active$ | async) ? 'paper' : 'text'" [size]="1.2" [bold]="(active$ | async) ? 600 : 500">
+              {{ step.label }}
+            </kkl-typography>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

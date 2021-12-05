@@ -1,0 +1,21 @@
+<div fxFill>
+    <kkl-table
+      *ngIf="data$ | async"
+      theme="primary"
+      [data$]="data$"
+      [columns]="columns"
+      [model]="model"
+      [hasState]="hasState"
+      [options]="options"
+      [rowsState$]="rowsState$"
+      [columnsState$]="columnsState$"
+      [hasActions]="false"
+      [rowSlots]="{actions}"
+      [formSlots]="{}"
+      
+      [hasFooter]="false"
+      (selected)="onSelected($event)"
+    >
+    </kkl-table>
+  </div>
+

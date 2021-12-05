@@ -1,0 +1,225 @@
+@use "variables.scss" as main;
+.container {
+  position: absolute;
+  top: calc(50% - 9rem);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba($color: #ffffff, $alpha: 0.82);
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 3rem 6rem 2rem 6rem;
+  z-index: 5;
+  box-sizing: border-box;
+  width: calc(100% - 200px);
+}
+
+.create-production {
+  height: calc(100% - 90px);
+  background-image: url("../../../../assets/images/background.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100% !important;
+
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    direction: rtl;
+    justify-content: space-between;
+    padding: 15px 0px;
+    position: relative;
+    z-index: 120;
+    // width: 100%;
+
+    &-field {
+      // display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      justify-content: space-evenly;
+      height: 100%;
+      // min-width: 25rem !important;
+      // flex: 1 1 100%;
+
+      &-input {
+        background-color: #ffffff;
+        border: 1px solid #b9b9b9;
+        box-sizing: border-box;
+        height: 5rem;
+        direction: rtl;
+        margin-top: 12px;
+        text-align: right;
+      }
+    }
+
+    &-headline {
+      font-size: 35px;
+      position: absolute;
+      top: -20%;
+      right: 0%;
+      font-weight: bolder;
+    }
+    &-field-label {
+      z-index: 5;
+      font-weight: bold;
+      margin-bottom: -5px;
+    }
+    &-season-option {
+      display: flex;
+      flex-direction: column;
+      line-height: 1rem;
+      padding: 5px 0;
+      text-align: right;
+      &-text {
+        color: #009eee;
+      }
+      & > * {
+        display: block;
+        padding: 5px 0;
+      }
+    }
+
+    &__select-option {
+      text-align: right !important;
+    }
+    &-group {
+      z-index: 120;
+      display: flex;
+      // margin-left: 4rem;
+      text-align: right;
+      flex-direction: column;
+      justify-content: space-evenly;
+      position: relative;
+      // flex: 1 1 80%;
+      // min-width: 25rem !important;
+
+      &-label {
+        font-weight: bold;
+        margin-bottom: -15px;
+      }
+    }
+  }
+
+  &__link {
+    background-color: #00c466;
+    color: #ffffff;
+    padding: 1rem 6rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+  }
+}
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: space-evenly;
+  height: 100%;
+  background-color: #ffffff;
+  // min-width: 25rem !important;
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__input {
+    // min-width: 25rem !important;
+
+    height: 5rem;
+    background-color: #ffffff !important;
+    border: 1px solid #a2a2a2;
+  }
+
+  &__input:active,
+  &__input:focus {
+    outline: none;
+  }
+}
+mat-select,
+#select {
+  background-color: #ffffff;
+  border: 1px solid #b9b9b9;
+  box-sizing: border-box;
+  align-self: flex-start;
+  text-align: right;
+  margin-left: 4rem;
+  height: 5rem;
+  margin-top: 5px;
+  // min-width: 25rem !important;
+  // width: 100%;
+}
+
+.container {
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    width: fit-content !important;
+  }
+
+  ::ng-deep .mat-form-field {
+    width: 90%;
+  }
+
+  ::ng-deep .mat-form-field-wrapper {
+    // width: 80% !important;
+    text-align: right;
+  }
+
+  ::ng-deep .mat-select-arrow {
+    border: 0 !important;
+    &:before {
+      border-style: solid;
+      border-width: 0.15em 0.15em 0 0;
+      content: "";
+      display: inline-block;
+      height: 0.7em;
+      left: 2rem;
+      position: relative;
+      top: -7px;
+      transform: rotate(135deg);
+      vertical-align: top;
+      width: 0.7em;
+      color: main.$primary;
+    }
+  }
+
+  ::ng-deep .mat-select-value,
+  ::ng-deep .mat-select-value-text,
+  ::ng-deep .mat-select-min-line {
+    height: 5rem !important;
+    vertical-align: middle;
+    padding-right: 5px;
+  }
+
+  ::ng-deep .mat-select-value-text {
+    margin: auto;
+  }
+  ::ng-deep .mat-select-min-line {
+    height: 4rem !important;
+  }
+
+  .mat-select-panel .mat-primary {
+    text-align: right;
+    // width: 26.1rem !important;
+  }
+
+  ::ng-deep .mat-select-panel {
+    // min-width: 26.1rem !important;
+  }
+
+  ::ng-deep .cdk-overlay-pane {
+    text-align: right;
+    transform: translateX(0) !important;
+    transform: translatey(5.1rem) !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .create-production__form-field-input {
+    margin-top: 5px;
+  }
+}

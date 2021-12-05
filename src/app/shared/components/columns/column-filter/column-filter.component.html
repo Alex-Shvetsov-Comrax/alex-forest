@@ -1,0 +1,89 @@
+<div>
+  <ng-container *ngIf="(filter$ | async)"></ng-container>
+  <div fxLayout="row" fxLayoutAlign="end end" class="column-filter-div">
+    <button mat-button class="btn-sort">
+      <kkl-typography [bold]="600" [size]="1.4" class="first-flex">
+        {{ column.label }}
+      </kkl-typography>
+    </button>
+    <button
+      [matMenuTriggerFor]="menu"
+      mat-icon-button
+      color="primary"
+      [ngClass]="{ 'btn-filter': true, active: (active$ | async) }"
+    >
+      <mat-icon> arrow_drop_down </mat-icon>
+    </button>
+  </div>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <!-- SEARCH -->
+
+    <ng-container [ngSwitch]="column.format">
+      <!-- DATES FILTER-->
+      <ng-container *ngSwitchCase="'date'">
+        <div
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          (click)="$event.stopPropagation()"
+        >
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex="70">
+              <kkl-form-date
+                placeHolder="מתאריך"
+                (dateEvent)="rangeEvent('from', $event)"
+              ></kkl-form-date>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex="70">
+              <kkl-form-date
+                placeHolder="עד תאריך"
+                (dateEvent)="rangeEvent('end', $event)"
+              ></kkl-form-date>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'currency'">
+        <div fxLayout="row" fxLayoutAlign="center center" class="currency">
+          <div fxFlex="90" (click)="$event.stopPropagation()">
+            <kkl-form [group]="amountFilter"></kkl-form>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <div fxLayout="row" fxLayoutAlign="center center" >
+          <div fxFlex="90">
+            <kkl-form-input
+              dir="rtl"
+              [question]="searchQuestion"
+              [control]="searchFilter"
+              (click)="$event.stopPropagation()"
+            >
+            </kkl-form-input>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <!-- CUSTOM OPTIONS -->
+    <div *ngIf="column.filterSlots" (click)="$event.stopPropagation()">
+      <ng-container *ngFor="let template of column.filterSlots">
+        <ng-container *ngTemplateOutlet="filterSlots[template]"></ng-container>
+      </ng-container>
+    </div>
+
+    <!-- DEFAULT OPTIONS MENU -->
+    <ng-container>
+      <button
+        mat-menu-item
+        *ngFor="let option of column.filterOptions"
+        (click)="onOptionSelect(option)"
+      >
+        <kkl-typography> {{ option.label }}</kkl-typography>
+      </button>
+    </ng-container>
+  </mat-menu>
+</div>

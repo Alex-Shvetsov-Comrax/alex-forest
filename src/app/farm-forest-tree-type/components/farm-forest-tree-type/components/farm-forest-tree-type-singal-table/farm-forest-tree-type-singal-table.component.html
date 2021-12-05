@@ -1,0 +1,63 @@
+<div class="main-container">
+  <div class="main">
+    <kkl-table
+      [expendable]="true"
+      [hasState]="true"
+      [hasActions]="true"
+      [selectable]="selectable"
+      [data$]="data$"
+      [columns]="columns"
+      [model]="model"
+      [options]="options"
+      [rowsState$]="rowsState$"
+      [formSlots]="{}"
+      [headerSlots]="{ actions: actionsHeader }"
+      [rowSlots]="{actions}"
+      [selectSlot]="{}"
+      [expandSlots]="{
+        actions: contactTable
+      }"
+    >
+    </kkl-table>
+  </div>
+
+  <ng-template #actions let-row="row" let-column="column" let-panel="panel">
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      dir="rtl"
+      fxLayoutGap="3rem"
+    >
+      <kkl-typography
+        appButton
+        class="chevron"
+        (click)="onExpand({row, column, options : {panel}})"
+      ></kkl-typography>
+    </div>
+  </ng-template>
+
+  <ng-template #contactTable let-row="row">
+    <div fxFill class="inner-table">
+      <app-farm-forest-singal-expandable-table></app-farm-forest-singal-expandable-table>
+    </div>
+  </ng-template>
+
+  <ng-template #actionsHeader let-row="row">
+    <div class="header-icons" fxLayout="row" fxLayoutAlign="center center">
+      <a class="header-icon-link"
+      routerLink="/forestry/forest-management/production-process/farm-forest/results"
+      >
+        <kkl-icon [size]="1.5" [key]="'trash_delete'"></kkl-icon>
+      </a>
+      <a
+        class="header-icon"
+      >
+        <kkl-icon
+          [size]="1.5"
+          [color]="'paper'"
+          [key]="'trash_delete'"
+        ></kkl-icon>
+      </a>
+    </div>
+  </ng-template>
+</div>

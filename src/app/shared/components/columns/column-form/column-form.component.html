@@ -1,0 +1,38 @@
+<div class="cell-input">
+  <ng-container [ngSwitch]="question.controlType">
+    <ng-container *ngSwitchCase="'custom'">
+      <ng-container
+        *ngTemplateOutlet="
+          slot;
+          context: {
+            row: this.row,
+            control: row.formGroup.controls[column.columnDef],
+            question: this.question,
+            column: this.column
+          }
+        "
+      ></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'group'">
+      <ng-container
+        *ngTemplateOutlet="
+          slot;
+          context: {
+            row: this.row,
+            control: row.formGroup.controls[column.columnDef],
+            question: this.question,
+            column: this.column
+          }
+        "
+      ></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      <kkl-form-input
+        [control]="row.formGroup.controls[column.columnDef]"
+        [question]="question"
+      ></kkl-form-input>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <p mat-dialog-title>dialog works!</p>
+  </div>
+  <mat-dialog-content>
+    <ng-container *ngIf="data?.component">
+      <ng-container *ngComponentOutlet="data.component"></ng-container>
+    </ng-container>
+  </mat-dialog-content>
+</div>

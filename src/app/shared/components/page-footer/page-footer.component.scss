@@ -1,0 +1,14 @@
+.bottom-icon {
+  z-index: 100 !important;
+  position: absolute;
+  bottom: 0;
+  left: 50%; 
+  overflow: hidden;
+  background-color: black;
+
+  ::ng-deep mat-icon {
+    position: fixed;
+    bottom: -5px;
+    height: auto !important;
+  }
+}

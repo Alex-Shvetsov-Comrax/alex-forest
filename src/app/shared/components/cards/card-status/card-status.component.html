@@ -1,0 +1,44 @@
+<div class="card-status" fxLayout="row" fxLayoutAlign="center center">
+  <div
+    appButton
+    appSize
+    [size]="6"
+    [matBadge]="status.value"
+    matBadgeColor="accent"
+    matBadgeSize="medium"
+    [matMenuTriggerFor]="menu"
+  >
+    <div class="status" appVariant [type]="status.type">
+      <div class="icon-container">
+        <kkl-icon [key]="status.svgUrl" [size]="3.5"></kkl-icon>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="text-container"
+    fxLayout="column"
+    fxLayoutAlign="end start"
+    [fxFlexOffset]="5"
+  >
+    <kkl-typography [size]="1.2" [bold]="600">
+      {{ status.label }}
+    </kkl-typography>
+  </div>
+</div>
+
+<mat-menu class="status-menu" #menu="matMenu">
+  <ng-container *ngFor="let option of status.options; let last = last">
+    <button mat-menu-item (click)="onOptionSelect(option)">
+      <div fxLayout="row" fxFill>
+        <div fxFlex="2rem">
+          <kkl-typography color="primary"> {{ option.value }}</kkl-typography>
+        </div>
+        <div fxFill>
+          <kkl-typography [bold]="600"> {{ option.label }}</kkl-typography>
+        </div>
+      </div>
+    </button>
+    <mat-divider *ngIf="!last"></mat-divider>
+  </ng-container>
+</mat-menu>

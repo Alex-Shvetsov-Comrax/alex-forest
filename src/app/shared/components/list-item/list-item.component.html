@@ -1,0 +1,39 @@
+<mat-list-item
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  class="header-list-item"
+  [ngClass]="{ padding }"
+>
+  <kkl-icon
+    mat-list-icon
+    *ngIf="item.svgUrl"
+    [key]="item.svgUrl"
+    [color]="icon.color"
+    [size]="icon.size"
+  >
+  </kkl-icon>
+
+  <div mat-line>
+    <kkl-typography [size]="item.size">
+      {{ item.label }}
+    </kkl-typography>
+    <ng-container [ngSwitch]="item.type">
+
+      <ng-container *ngSwitchDefault>
+        <kkl-typography [size]="item.size">
+          {{ tem.value | format: type }}
+        </kkl-typography>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'custom'">
+        <ng-container
+          *ngTemplateOutlet="
+            slots[item.key];
+            context: { item: this.item.value }
+          "
+        >
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</mat-list-item>

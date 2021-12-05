@@ -1,0 +1,16 @@
+@use "variables" as main;
+
+mat-form-field {
+  width: 100%;
+  font-size: 12px !important;
+}
+
+::ng-deep .mat-select-arrow {
+  opacity: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  mat-form-field {
+    font-size: 9px !important;
+  }
+}

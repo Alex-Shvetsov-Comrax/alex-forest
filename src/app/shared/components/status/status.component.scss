@@ -1,0 +1,35 @@
+@use "variables" as main;
+
+
+.status-container,
+div {
+  width: 100%;
+}
+
+mat-progress-bar.status-progress-bar {
+  :ng-deep .mat-progress-bar-buffer {
+    background-color: #90a4ae !important;
+  }
+
+  :ng-deep .mat-progress-bar.mat-accent.mat-progress-bar-buffer {
+    background-color: #90a4ae !important;
+  }
+
+  ::ng-deep .mat-progress-bar-buffer.mat-progress-bar-element {
+    background-color: main.color(light-text) !important;
+  }
+}
+
+.step-label {
+  padding-top: main.spacing(1);
+}
+
+div.status-bar {
+  height: main.spacing(0.5);
+  width: 100%;
+  background-color: main.color(disable);
+
+  &.active {
+    background-color: main.color(primary);
+  }
+}

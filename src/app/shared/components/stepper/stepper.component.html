@@ -1,0 +1,29 @@
+<div [fxLayout]="direction" class="steps-container" fxLayoutAlign="center center" >
+  <ng-container *ngFor="let step of (steps$ | async); let i = index; let last = last">
+    <div appSize [space]="stepWidth" [type]="step.type">
+      <ng-container *ngIf="!stepRef">
+        <ng-container [ngSwitch]="step.type">
+          <ng-container *ngSwitchCase="'step'">
+            <kkl-card-step (onStepChange)="onStepChange(step)" [step]="step"></kkl-card-step>
+          </ng-container>
+          <ng-container *ngSwitchCase="'wizard'">
+            <kkl-card-wizard (onStepChange)="onStepChange(step)" [step]="step"></kkl-card-wizard>
+          </ng-container>
+          <ng-container *ngSwitchCase="'status'">
+            <kkl-card-status [status]="step"></kkl-card-status>
+          </ng-container>
+        </ng-container>
+        <ng-content></ng-content>
+      </ng-container>
+
+      <ng-container *ngTemplateOutlet="stepRef; context: { step: this.step }">
+      </ng-container>
+    </div>
+    <div *ngIf="step.divider" [divider]="step.divider" class="divider-container" fxLayout="column"
+      fxLayoutAlign="center center">
+      <div *ngIf="!last" class="divider">
+      </div>
+    </div>
+  </ng-container>
+</div>
+

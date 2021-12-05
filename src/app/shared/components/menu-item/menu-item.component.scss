@@ -1,0 +1,21 @@
+@use "variables" as main;
+
+mat-list-item {
+  height: 4rem !important;
+  font-size: 1.4rem !important;
+  width: 90% !important;
+  border-top-left-radius: 1rem !important;
+  border-bottom-left-radius: 1rem !important;
+
+
+  &.mat-focused {
+    border-top-left-radius: 1rem !important;
+    border-bottom-left-radius: 1rem !important;
+    background-color: red;
+  }
+
+  &.active {
+    background-color: main.color(primary);
+    color: main.color(paper) !important;
+  }
+}

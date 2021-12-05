@@ -1,0 +1,37 @@
+<div class="drawer" [ngClass]="{ closed: !isOpen }">
+    <div class="drawer-toggle" (click)="toggleDrawer()" [ngClass]="{ 'closed-toggle': !isOpen }">
+        <app-svg-icon firstIcon="open" secondIcon='clipboard' selectedColor='accent-icon' [title]='title'>
+        </app-svg-icon>
+
+    </div>
+    <div class="content" *ngIf='isOpen'>
+       <div class="header">
+        <h4 class="drawer__headline">מסמכי הליך</h4>
+        <button>הוספת מסמך חדש &#43;</button>
+        <kkl-form-input [question]='SELECT_OPTIONS[0]' dir="rtl"
+            [control]="myFormGroup.formGroup.controls['documents']">
+        </kkl-form-input>
+       </div>
+        <mat-divider></mat-divider>
+        <div *ngFor='let item of items' class="drawer-card">
+            <div>
+                <p class="file-title">{{item.title}}</p>
+            </div>
+            <div>
+                <p class="file-paragraph">{{item.file}}</p>
+            </div>
+            <div class="drawer-card-content">
+                <div>
+                    <p>הועלה על ידי : {{item.user}}</p>
+                </div>
+                <div class="drawer-card-date">
+                    <p>{{item.time}}</p>
+                    <p>{{item.date}}</p>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+
+
+</div>

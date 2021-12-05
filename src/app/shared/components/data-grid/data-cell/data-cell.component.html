@@ -1,0 +1,21 @@
+<div fxFill fxLayout="row" fxLayoutAlign="start center">
+
+  <kkl-typography [classes]="classes" class="label-text" *ngIf="label" [bold]="500"
+    [color]="value ? 'text' : 'disable'">
+    {{ label }}:
+  </kkl-typography>
+
+  <ng-container [ngSwitch]="type">
+
+    <app-date [size]="size" [value]="value" *ngSwitchCase="'date'"></app-date>
+
+    <kkl-typography [bold]="600" [size]="size" *ngSwitchCase="'area'">
+      {{ value | area }}
+    </kkl-typography>
+
+    <kkl-typography [size]="size" *ngSwitchDefault [bold]="600" [underline]="underline"
+      [color]="value ? 'text' : 'disable'">
+      {{ value }}
+    </kkl-typography>
+  </ng-container>
+</div>

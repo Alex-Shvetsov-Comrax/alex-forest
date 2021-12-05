@@ -1,0 +1,66 @@
+<div fxFill>
+  <kkl-table
+    *ngIf="data$ | async"
+    theme="primary"
+    [data$]="data$"
+    [columns]="columns"
+    [model]="model"
+    [hasState]="hasState"
+    [options]="options"
+    [rowsState$]="rowsState$"
+    [columnsState$]="columnsState$"
+    [hasActions]="true"
+    [rowSlots]="{actions}"
+    [formSlots]="{}"
+    [hasFooter]="hasFooter"
+    [headerSlots]="{ actions: actionsHeader }"
+    (selected)="onSelected($event)"
+  >
+  </kkl-table>
+</div>
+<!-- 
+<ng-template #actions let-row="row">
+  <div fxLayout="row" fxLayoutAlign="center end" dir="rtl">
+    <ng-container *ngIf="mode$ | async as mode">
+      <kkl-table-actions
+        [mode$]="mode$"
+        [hasEdit]="true"
+        [editable]="row.editable"
+        (edit)="onEditState(row)"
+        (delete)="onDeleteState({row, mode})"
+      ></kkl-table-actions>
+    </ng-container>
+  </div>
+</ng-template> -->
+
+<ng-template #actions let-row="row">
+  <div fxLayout="row" fxLayoutAlign="center end" dir="rtl">
+    <kkl-table-actions
+      [mode$]="mode$"
+      [hasEdit]="true"
+      [editable]="row.editable"
+      (edit)="onEditState(row)"
+      (delete)="onDeleteState({row, mode})"
+    ></kkl-table-actions>
+  </div>
+</ng-template>
+
+
+<ng-template #actionsHeader let-row="row">
+  <div class="header-icons" fxLayout="row" fxLayoutAlign="center center">
+    <a class="header-icon-link" 
+    routerLink="/forestry/forest-management/production-process/farm-forest/results"
+    >
+      <kkl-icon [size]="1.5" [key]="'trash_delete'"></kkl-icon>
+    </a>
+    <a 
+      class="header-icon"
+    >
+      <kkl-icon
+        [size]="1.5"
+        [color]="'paper'"
+        [key]="'trash_delete'"
+      ></kkl-icon>
+    </a>
+  </div>
+</ng-template>

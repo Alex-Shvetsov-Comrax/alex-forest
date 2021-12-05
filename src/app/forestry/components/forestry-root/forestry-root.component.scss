@@ -1,0 +1,11 @@
+@use "variables" as main;
+
+kkl-stepper {
+  background-color: main.color(paper);
+  box-shadow: -3px 0px 12px #00000029;
+  padding: main.spacing(1) 0 spacing(1) 0;
+}
+
+kkl-menu {
+  width: 100%;
+}

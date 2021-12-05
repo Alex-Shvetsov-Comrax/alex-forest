@@ -1,0 +1,15 @@
+<kkl-form [group]="questions" [slots]="{button}"></kkl-form>
+
+<ng-template #button let-question="question" let-controls="controls">
+  <div class="btn">
+    <button
+      type="submit"
+      disableRipple="true"
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit(controls)"
+    >
+      חיפוש
+    </button>
+  </div>
+</ng-template>
