@@ -8,6 +8,7 @@ import { ProductionProccesFormComponent } from './components/production-process/
 import { ProductionProccesTableComponent } from './components/production-process/components/production-procces-table/production-procces-table.component';
 import { AddProductionProcessComponent } from './components/add-production-process/add-production-process.component';
 import { ProductionProcessStatusTableComponent } from './components/production-process-status-table/production-process-status-table.component';
+import { ProductionProcessStatusComponent } from './components/production-process-status/production-process-status.component';
 
 
 
@@ -18,7 +19,8 @@ import { ProductionProcessStatusTableComponent } from './components/production-p
     ProductionProccesFormComponent,
     ProductionProccesTableComponent,
     AddProductionProcessComponent,
-    ProductionProcessStatusTableComponent
+    ProductionProcessStatusTableComponent,
+    ProductionProcessStatusComponent
   ],
   imports: [
     CommonModule,

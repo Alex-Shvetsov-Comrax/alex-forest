@@ -1,0 +1,37 @@
+<div class="production-process-status" fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="80" fxFill>
+      <div fxLayout="column">
+        <!-- form -->
+        <app-add-production-process-header
+        (downloadEmitter)="downloadExcel()"
+        ></app-add-production-process-header>
+      
+    
+    <!-- table -->
+    <div class="table">
+      <app-production-process-status-table> </app-production-process-status-table>
+    </div>
+       <app-page-footer
+    [color]="'primary'"  
+    [size]="'20'" 
+    [icon]="'tree_top_gradient_mpk'"
+    ></app-page-footer>
+  </div>
+  </div>
+  </div>
+  
+  <!-- form templates -->
+  <ng-template #button let-question="question" let-controls="controls">
+    <div class="btn">
+      <button
+      type="submit"
+      disableRipple="true"
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit(controls)"
+      >
+      חיפוש
+    </button>
+  </div>
+  </ng-template>
+  

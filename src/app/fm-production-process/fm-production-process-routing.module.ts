@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RootComponent } from '../shared/components/root/root.component';
 import { AddProductionProcessComponent } from './components/add-production-process/add-production-process.component';
 import { ProductionProcessStatusTableComponent } from './components/production-process-status-table/production-process-status-table.component';
+import { ProductionProcessStatusComponent } from './components/production-process-status/production-process-status.component';
 import { ProductionProcessComponent } from './components/production-process/production-process.component';
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
       },
       {
         path: 'status',
-        component: ProductionProcessStatusTableComponent,
+        component: ProductionProcessStatusComponent,
       },
       {
         path: 'spatial',

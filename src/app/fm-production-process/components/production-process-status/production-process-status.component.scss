@@ -1,0 +1,21 @@
+@use 'variables' as main;
+
+
+.production-process-status{
+  height: main.$content-height;
+  width: 100%;
+  padding-top: 5rem;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.height {
+  visibility: collapse;
+  transition: all 0.2s;
+}
+
+.table{
+  margin-top: 3rem; 
+}
+
+ 
