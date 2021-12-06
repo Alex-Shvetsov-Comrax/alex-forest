@@ -1,9 +1,7 @@
 import { FarmForestTableModel } from "../fm-pp-farm-forest-program/components/farm-forest/components/farm-forest-table/farm-forest-table.model";
-import { SpatialTotalTableModel } from "../spatial-production-program/components/spatial-total-table/spatial-total-table.model";
 import { ProductionProcessHeaderModel } from "../shared/components/add-production-process-header/production-process-header.model";
 import { FilterModel } from "../shared/components/cards/card-filter/card-filter.model";
 import { QuestionSelectModel } from "../shared/components/form/models/question-select.model";
-import { QuestionTextModel } from "../shared/components/form/models/question-text.model";
 import { Question } from "../shared/components/form/services/form.service";
 
 export const ADD_FARM_FOREST_HEADER: ProductionProcessHeaderModel[] = [
@@ -150,8 +148,3 @@ export const ADD_FARM_FOREST_HEADER: ProductionProcessHeaderModel[] = [
 },
   ]
 
-
-  
-  export const  SPATIAL_TABLE_DATA2:SpatialTotalTableModel[]=[
-    
-  ]

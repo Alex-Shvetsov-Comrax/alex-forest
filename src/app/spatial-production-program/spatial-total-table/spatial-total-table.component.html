@@ -1,0 +1,74 @@
+<div fxFill>
+  <kkl-table
+    *ngIf="data$ | async"
+    theme="primary"
+    [data$]="data$"
+    [columns]="columns"
+    [model]="model"
+    [hasState]="hasState"
+    [options]="options"
+    [rowsState$]="rowsState$"
+    [columnsState$]="columnsState$"
+    [hasActions]="true"
+    [rowSlots]="{ actions}"
+    [headerSlots]="{ actions: actionsHeader }"
+    [hasFooter]="hasFooter"
+    (selected)="onSelected($event)"
+  >
+  </kkl-table>
+</div>
+
+
+
+<ng-template #actions let-row="row">
+  <div fxLayout="row" fxLayoutAlign="center end" dir="rtl">
+    <ng-container *ngIf="mode$ | async as mode">
+      <kkl-table-actions
+        [mode$]="mode$"
+        [hasEdit]="true"
+        [editable]="row.editable"
+        (edit)="onEditState(row)"
+        (delete)="onDeleteState({row, mode})"
+        (save)="onSaveContact(row)"
+      ></kkl-table-actions>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #actionsHeader let-row="row">
+  <ng-container>
+    <button appBorder mat-raised-button (click)="onAddContact()">
+      <div
+        class="btn-contact"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <kkl-icon [color]="'text'" type="mat" key="add" [size]="1.2"></kkl-icon>
+        <kkl-typography [color]="'text'" [size]="1.2">
+          {{ text || "הוסף תוכנית" }}
+        </kkl-typography>
+      </div>
+    </button>
+  </ng-container>
+</ng-template>
+
+<ng-template #actionsFooter let-row="row">
+  <button
+    mat-raised-button
+    [disabled]="!(contactsButton$ | async)"
+    color="primary"
+    (click)="onSelectContacts()"
+  >
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <kkl-typography [color]="(contactsButton$ | async) ? 'paper' : 'disable'">
+        {{ text || "שמור" }}
+      </kkl-typography>
+      <kkl-icon
+        [color]="(contactsButton$ | async) ? 'paper' : 'disable'"
+        type="mat"
+        key="chevron_left"
+      ></kkl-icon>
+    </div>
+  </button>
+</ng-template>
+

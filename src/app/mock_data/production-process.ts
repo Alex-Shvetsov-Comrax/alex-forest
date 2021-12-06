@@ -1,10 +1,10 @@
-import { SpatialTotalTableModel } from '../spatial-production-program/components/spatial-total-table/spatial-total-table.model';
 import { ProductionProcessTableModel } from '../fm-production-process/components/production-process/components/production-procces-table/production-process-table.model';
 import { ProductionProcessHeaderModel } from '../shared/components/add-production-process-header/production-process-header.model';
 import { FilterModel } from '../shared/components/cards/card-filter/card-filter.model';
 import { QuestionSelectModel } from '../shared/components/form/models/question-select.model';
 import { QuestionTextModel } from '../shared/components/form/models/question-text.model';
 import { Question } from '../shared/components/form/services/form.service';
+import { SpatialTotalTableModel } from '../spatial-production-program/spatial-total-table/spatial-total-table.model';
 
 export const PRODUCTION_PROCESS_TABLE: ProductionProcessTableModel[] = [
   {
