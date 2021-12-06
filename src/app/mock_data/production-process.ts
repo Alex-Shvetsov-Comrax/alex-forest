@@ -1,4 +1,4 @@
-import { SpatialTotalTableModel } from '../fm-pp-spatial-production-program/components/spaial-production-program/components/spatial-total-table/spatial-total-table.model';
+import { SpatialTotalTableModel } from '../fm-pp-spatial-production-program/components/spatial-total-table/spatial-total-table.model';
 import { ProductionProcessTableModel } from '../fm-production-process/components/production-process/components/production-procces-table/production-process-table.model';
 import { ProductionProcessHeaderModel } from '../shared/components/add-production-process-header/production-process-header.model';
 import { FilterModel } from '../shared/components/cards/card-filter/card-filter.model';

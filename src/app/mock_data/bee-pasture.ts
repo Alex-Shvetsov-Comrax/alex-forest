@@ -3,7 +3,7 @@ import { FarmForestTreeTypeSingalTableModel } from "../farm-forest-tree-type/com
 import { FarmForestTotalTableModel } from "../fm-pp-farm-forest-program/components/farm-forest-results/components/farm-forest-total-table/farm-forest-total-table.model";
 import { FarmForestTreeTableModel } from "../fm-pp-farm-forest-program/components/farm-forest-results/components/farm-forest-tree-table/farm-forest-tree-table.model";
 import { FarmForestTableModel } from "../fm-pp-farm-forest-program/components/farm-forest/components/farm-forest-table/farm-forest-table.model";
-import { SpatialTotalTableModel } from "../fm-pp-spatial-production-program/components/spaial-production-program/components/spatial-total-table/spatial-total-table.model";
+import { SpatialTotalTableModel } from "../fm-pp-spatial-production-program/components/spatial-total-table/spatial-total-table.model";
 import { ProductionProcessHeaderModel } from "../shared/components/add-production-process-header/production-process-header.model";
 import { FilterModel } from "../shared/components/cards/card-filter/card-filter.model";
 import { QuestionSelectModel } from "../shared/components/form/models/question-select.model";
