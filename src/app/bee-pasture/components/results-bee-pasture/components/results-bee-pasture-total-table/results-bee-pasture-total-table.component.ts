@@ -217,7 +217,6 @@ export class ResultsBeePastureTotalTableComponent implements OnInit, Table<AddBe
       });
       
       if (Number(row.item.total) === sum  ) { 
-        console.log(sum);
         return false;
       }
       if(sum>0 && Number(row.item.total) !== sum ){

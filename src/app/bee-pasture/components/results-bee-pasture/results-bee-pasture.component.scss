@@ -1,12 +1,12 @@
 @use 'variables' as main;
 
-
 .farm-forest-results {
   height: main.$content-height;
   width: 100%;
   padding-top: 5rem;
   background-color: #ffffff;
   overflow: auto;
+  position: relative;
 }
 
 .height {
@@ -19,3 +19,7 @@
 }
 
  
+
+.farm-forest-results-main-area{ 
+height: 100% !important; 
+}

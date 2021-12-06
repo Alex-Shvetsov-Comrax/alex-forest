@@ -1,58 +1,70 @@
-
-
 <div class="farm-forest-results" fxLayout="row" fxLayoutAlign="center center">
-    <div fxFlex="80" fxFill>
-      <div fxLayout="column">
-        <!-- form -->
-        <app-add-production-process-header
-          [formOpen]="isFormOpen"
-          (downloadEmitter)="downloadExcel()"
-          (toggleEditEmitter)="toggleForm()"
-        ></app-add-production-process-header>
-        <div
-          fxLayout="row-reverse"
-          flexLayoutAlign="end end"
-          [ngClass]="{ height: isFormOpen }"
-        >
-          <kkl-form fxFlex="60" [group]="questions" [slots]="{button}"></kkl-form>
-        </div>
-  
-        <!-- filters -->
-        <div
-          class="filters"
-          fxLayout="row-reverse "
-          fxLayoutAlign="center stretch"
-          fxLayoutGap="7rem"
-        >
-          <kkl-card-filter
-            *ngFor="let filter of filters"
-            [filter]="filter"
-            [filterValue]="filterValue"
-            (click)="setFilterValue(filter)"
-          ></kkl-card-filter>
-        </div>
-  
-        <!-- table -->
-        <div class="table">
-          <app-results-bee-pasture-total-table *ngIf="filterValue === 'total'"></app-results-bee-pasture-total-table>
-          <app-results-bee-pasture-singal-table *ngIf="filterValue !== 'total'"></app-results-bee-pasture-singal-table>
-        </div>
+  <div fxFlex="80" fxFill>
+    <div fxLayout="column"
+    class="farm-forest-results-main-area"
+    fxLayoutAlign="space-between">
+      <!-- form -->
+      <app-add-production-process-header
+        [formOpen]="isFormOpen"
+        (downloadEmitter)="downloadExcel()"
+        (toggleEditEmitter)="toggleForm()"
+      ></app-add-production-process-header>
+      <div
+        fxLayout="row-reverse"
+        flexLayoutAlign="end end"
+        [ngClass]="{ height: isFormOpen }"
+      >
+        <kkl-form fxFlex="60" [group]="questions" [slots]="{button}"></kkl-form>
       </div>
+
+      <!-- filters -->
+      <div
+        class="filters"
+        fxLayout="row-reverse "
+        fxLayoutAlign="center stretch"
+        fxLayoutGap="7rem"
+      >
+        <kkl-card-filter
+          *ngFor="let filter of filters"
+          [filter]="filter"
+          [filterValue]="filterValue"
+          (click)="setFilterValue(filter)"
+        ></kkl-card-filter>
+      </div>
+
+      <!-- table -->
+      <div class="table">
+        <app-add-bee-pasture-table
+          *ngIf="filterValue === 'total'"
+        ></app-add-bee-pasture-table>
+
+        <!-- <app-results-bee-pasture-total-table *ngIf="filterValue === 'total'"></app-results-bee-pasture-total-table> -->
+        <app-results-bee-pasture-singal-table
+          *ngIf="filterValue !== 'total'"
+        ></app-results-bee-pasture-singal-table>
+      </div>
+      <!-- page footer -->
+      <kkl-navbar-bottom
+      (next)="nextPage()"
+      fxFlex="10"
+      [hasIcon]="true"
+      [hasNext]="true"
+      ></kkl-navbar-bottom>
     </div>
   </div>
-  
-  <!-- form templates -->
-  <ng-template #button let-question="question" let-controls="controls">
-    <div class="btn">
-      <button
-        type="submit"
-        disableRipple="true"
-        mat-raised-button
-        color="primary"
-        (click)="onSubmit(controls)"
-      >
-        חיפוש
-      </button>
-    </div>
-  </ng-template>
-  
+</div>
+
+<!-- form templates -->
+<ng-template #button let-question="question" let-controls="controls">
+  <div class="btn">
+    <button
+      type="submit"
+      disableRipple="true"
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit(controls)"
+    >
+      חיפוש
+    </button>
+  </div>
+</ng-template>

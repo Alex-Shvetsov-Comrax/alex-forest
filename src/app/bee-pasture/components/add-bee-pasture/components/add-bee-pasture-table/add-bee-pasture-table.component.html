@@ -53,6 +53,7 @@
         ></kkl-icon>
       </div>
     </button>
+    
   </ng-template>
   <ng-template
     #ashtaolInput
@@ -68,6 +69,7 @@
       (input)="checkToyalSum(row, column, control)"
     ></kkl-form-input>
   </ng-template>
+
   <ng-template
     #gilatInput
     let-row="row"
@@ -83,6 +85,7 @@
       (input)="checkToyalSum(row, column, control)"
     ></kkl-form-input>
   </ng-template>
+
   <ng-template
     #golaniInput
     let-row="row"
@@ -98,21 +101,3 @@
     ></kkl-form-input>
   </ng-template>
   
-  <!-- <ng-template #actionsHeader let-row="row">
-    <div class="header-icons" fxLayout="row" fxLayoutAlign="center center">
-      <a class="header-icon">
-        <kkl-icon
-          [size]="1.5"
-          [color]="'paper'"
-          [key]="'trash_delete'"
-        ></kkl-icon>
-      </a>
-      <a
-        class="header-icon-link"
-        routerLink="/forestry/forest-management/production-process/farm-forest/trees"
-      >
-        <kkl-icon [size]="1.5" [key]="'trash_delete'"></kkl-icon>
-      </a>
-    </div>
-  </ng-template>
-   -->
